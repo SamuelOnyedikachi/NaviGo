@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Navigo-app",
-    "slug": "Navigo-app",
+    "name": "NaviGo",
+    "slug": "navigo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "navigoapp",
+    "scheme": "navigo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -38,7 +38,9 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth"
     ],
     "experiments": {
       "typedRoutes": true,

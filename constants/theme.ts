@@ -1,53 +1,41 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
-import { Platform } from 'react-native';
-
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    primary: '#00D4AA',
+    background: '#F6F7F9',
+    card: '#FFFFFF',
+    cardAlt: '#F1F5F9',
+    cardBorder: '#E5E7EB',
+    text: '#0F172A',
+    textMuted: '#6B7280',
+    textSubtle: '#94A3B8',
+    icon: '#0F172A',
+    danger: '#EF4444',
+    success: '#00D4AA',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    primary: '#00D4AA',
+    background: '#0A0A0A',
+    card: '#111111',
+    cardAlt: '#141414',
+    cardBorder: '#1E1E1E',
+    text: '#FFFFFF',
+    textMuted: '#666666',
+    textSubtle: '#555555',
+    icon: '#FFFFFF',
+    danger: '#FF4757',
+    success: '#00D4AA',
   },
 };
 
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-  },
-});
+export const COLORS = Colors.dark;
+
+export const MAPS_API_KEY =
+  process.env.EXPO_PUBLIC_MAP_API_KEY ?? process.env.MAPS_API_KEY;
+
+// Aba, Nigeria coordinates (default map center)
+export const ABA_COORDS = {
+  latitude: 5.1167,
+  longitude: 7.3667,
+  latitudeDelta: 0.05,
+  longitudeDelta: 0.05,
+};

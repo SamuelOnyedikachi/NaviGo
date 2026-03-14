@@ -1,50 +1,77 @@
-# Welcome to your Expo app 👋
+# NaviGo Rider App — Setup Guide
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## 1. Copy these files into your project
 
-## Get started
+Copy all files from this folder into your existing Expo project, replacing the existing ones.
 
-1. Install dependencies
+## 2. Install required packages
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Run these commands in your project folder:
 
 ```bash
-npm run reset-project
+npx expo install react-native-maps
+npx expo install expo-location
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 3. Configure Google Maps (Android)
 
-## Learn more
+Open `app.json` and add your Maps API key inside the `android` section:
 
-To learn more about developing your project with Expo, look at the following resources:
+```json
+{
+  "expo": {
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAX1lBsDG8vCXJQVSd9Eabzn3PUIgywj4c"
+        }
+      }
+    },
+    "ios": {
+      "config": {
+        "googleMapsApiKey": "AIzaSyAX1lBsDG8vCXJQVSd9Eabzn3PUIgywj4c"
+      }
+    }
+  }
+}
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 4. Run the app
 
-## Join the community
+```bash
+npx expo start
+```
 
-Join our community of developers creating universal apps.
+Scan the QR code with Expo Go on your phone.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 5. What you'll see
+
+- **Login screen** — phone number input with Nigeria +234 prefix
+- **Verify screen** — 6-digit OTP entry (auto-advances when complete)
+- **Home screen** — full screen dark map with your live GPS location
+- **Rides tab** — your ride history
+- **Profile tab** — your profile and settings
+
+## 6. Next steps (what to build next)
+
+- [ ] Connect Firebase Authentication for real OTP login
+- [ ] Add destination search using Google Places Autocomplete
+- [ ] Add "Book Ride" flow — show fare estimate before confirming
+- [ ] Build the Driver App
+
+## Folder Structure
+
+```
+app/
+├── _layout.tsx          ← Root layout + auth check
+├── (auth)/
+│   ├── login.tsx        ← Phone number screen
+│   └── verify.tsx       ← OTP verification screen
+└── (tabs)/
+    ├── _layout.tsx      ← Tab bar config
+    ├── index.tsx        ← Home + Map screen
+    ├── rides.tsx        ← Ride history
+    └── profile.tsx      ← User profile
+constants/
+└── index.ts             ← Colors, API keys, Aba coordinates
+```
